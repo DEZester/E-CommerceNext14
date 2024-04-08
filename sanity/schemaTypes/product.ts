@@ -23,6 +23,10 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'Product slug',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
     },
     {
       name: 'price',

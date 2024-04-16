@@ -1,6 +1,10 @@
 import React from 'react';
 import {client} from "@/app/lib/sanity";
 import {simplifiedProduct} from "@/app/interface";
+import Link from "next/link";
+import Image from "next/image";
+
+import {ArrowRight} from "lucide-react";
 
 async function getData() {
   const query = `*[_type == 'product'][0...4] | order(_createdAt asc) {_id, price, name, "slug": slug.current, "categoryName": category->name, "imageUrl": images[0].asset->url}`
@@ -14,7 +18,28 @@ const Newest: React.FC = async () => {
     <div className='bg-white'>
       <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8'>
         <div className="flex justify-between items-center">
-          <h2>Our Newest Products</h2>
+          <h2 className='text-2xl font-bold tracking-tight text-gray-900'>Our Newest Products</h2>
+
+          <Link href={'/all'}
+                className='text-primary flex items-center gap-x-1'
+          >
+            See All{" "}
+            <span>
+              <ArrowRight/>
+            </span>
+          </Link>
+        </div>
+
+        <div className='mt-6 grid grid-cols-1 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
+          {data.map(product => <div key={product._id} className='group relative'>
+            <div
+              className='aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80 cursor-pointer'>
+              <Image src={product.imageUrl} alt="Product image"
+                     width={300}
+                     height={300}
+                     className='w-full h-full object-cover object-center lg:h-full lg:w-full'/>
+            </div>
+          </div>)}
         </div>
 
       </div>

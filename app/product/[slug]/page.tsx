@@ -4,6 +4,7 @@ import {fullProduct} from "@/app/interface";
 import ImageGallery from "@/components/ImageGallery";
 import {Button} from "@/components/ui/button";
 import {Star, Truck} from "lucide-react";
+import AddToBag from "@/components/AddToBag";
 
 async function getData(slug: string) {
   const query = `*[_type == 'product' && slug.current == "${slug}"] [0] {_id, price, name, "slug": slug.current, "categoryName": category->name, images, description}`
@@ -54,7 +55,12 @@ export default async function ProductPage({params}: { params: { slug: string } }
             </div>
 
             <div className='flex gap-2.5'>
-              <Button>Add to Bag</Button>
+              <AddToBag currency={'UAH'}
+                        description={data.description}
+                        name={data.name}
+                        price={data.price}
+                        image={data.images[0]}
+              />
               <Button variant={'secondary'}>Checkout now</Button>
             </div>
 

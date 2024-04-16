@@ -16,3 +16,11 @@ export interface fullProduct {
   name: string;
   description: string;
 }
+
+export interface ProductCart {
+  name: string;
+  description: string;
+  price: number;
+  image: any;
+  currency: string;
+}

@@ -9,7 +9,7 @@ async function getData() {
   return await client.fetch(query)
 }
 
-export default async function Hero() {
+export default async function Hero(): Promise<React.JSX.Element> {
 
   const data = await getData()
   return <section className='mx-auto max-w-2xl px-4 sm:pb-6 lg:max-w-7xl lg:px-8'>

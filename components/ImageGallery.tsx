@@ -30,7 +30,6 @@ export default function ImageGallery({images}: iAppProps) {
         className='h-full w-full object-cover object-center cursor-pointer'
         width={500}
         height={500}
-        onClick={() => setBigImage(images[0])}
       />
     </div>
 

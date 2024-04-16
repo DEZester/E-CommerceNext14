@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/sheet"
 import {useShoppingCart} from "use-shopping-cart";
 import Image from "next/image";
+import {Button} from "@/components/ui/button";
 
 export default function ShoppingCartModal() {
   const {
@@ -74,8 +75,18 @@ export default function ShoppingCartModal() {
               <p>{totalPrice}</p>
             </div>
             <p className='mt-0.5 text-sm text-gray-500'>Shipping and taxes are calculated at checkout.</p>
-          </div>
 
+            <div className='mt-6'>
+              <Button className='w-full'>Checkout</Button>
+            </div>
+
+            <div className='mt-6 flex justify-center text-center text-sm text-gray-500'>
+              <p>
+                Or <button onClick={() => handleCartClick()}
+                           className='font-medium text-primary hover:text-primary/80'>Continue Shopping</button>
+              </p>
+            </div>
+          </div>
         </div>
       </SheetContent>
     </Sheet>

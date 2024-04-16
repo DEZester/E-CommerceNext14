@@ -19,6 +19,7 @@ export interface fullProduct {
 
 export interface ProductCart {
   name: string;
+  slug: string;
   description: string;
   price: number;
   image: any;

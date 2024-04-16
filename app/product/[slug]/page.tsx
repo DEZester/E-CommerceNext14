@@ -60,6 +60,7 @@ export default async function ProductPage({params}: { params: { slug: string } }
                         name={data.name}
                         price={data.price}
                         image={data.images[0]}
+                        slug={data.slug}
               />
               <Button variant={'secondary'}>Checkout now</Button>
             </div>

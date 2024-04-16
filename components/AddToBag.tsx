@@ -5,11 +5,11 @@ import {useShoppingCart} from "use-shopping-cart";
 import {ProductCart} from "@/app/interface";
 import {urlFor} from "@/app/lib/sanity";
 
-export default function AddToBag({currency, name, description, price, image}: ProductCart) {
+export default function AddToBag({currency, name, description, price, image, slug}: ProductCart) {
   const {addItem, handleCartClick} = useShoppingCart()
 
   const product = {
-    id: 'sdfsdf',
+    id: slug,
     name: name,
     description: description,
     price: price,
